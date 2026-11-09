@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./api:/app
+      - /app/node_modules
+    environment:
+      - DB_HOST=db
+      - DB_USER=duana
+      - DB_PASS=senha123
+      - DB_NAME=ex3_db
+    depends_on:
+      - db
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: duana
+      POSTGRES_PASSWORD: senha123
+      POSTGRES_DB: ex3_db
+    volumes:
+      - ex3_dev_data:/var/lib/postgresql/data
+volumes:
+  ex3_dev_data:
