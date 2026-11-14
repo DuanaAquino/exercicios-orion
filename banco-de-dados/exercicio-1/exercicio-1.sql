@@ -23,3 +23,5 @@ INSERT INTO alunos (id, nome, email, curso_id) VALUES
 (4, 'Pedro Santos', 'pedro@outlook.com', 1);
 
 SELECT * FROM alunos;
+
+INSERT INTO alunos (id, nome, email, curso_id) VALUES (5, 'Aluno Teste', 'teste@email.com', 99);
